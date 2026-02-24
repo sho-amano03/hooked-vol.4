@@ -71,6 +71,26 @@
         padding: 20px 0;
     }
 } 
+/* 改行（PC）では無効 */
+.sp-break{
+    display:none;
+}
+
+@media (max-width:600px){
+    .ticket-text{
+        font-size: 14px;
+    }
+    .closing-text{
+        font-size: 14px;
+    }
+    .sp-break{
+        display: block;
+    }
+}
+/* ここまでスマホ様 */
+
+
+
 
 body{
     line-height: 1.6;
@@ -127,6 +147,15 @@ h2{
      0 0 40px rgba(122,92, 255, 0.6);      
 
 }
+/* about */
+.concept{
+    font-size: 0.9rem;
+    opacity: 0.85;
+    letter-spacing: 1px;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+    margin-top: 50px;
+}
+
 section p{
     text-shadow:
     0 0 12px rgba(255, 255, 255, 0.4),
@@ -138,32 +167,13 @@ section p{
     0 0 12px rgba(255, 255, 255, 0.9),
     0 0 30px rgba(172,128,214,0.7);
 }
-/* section{
-    margin-top: 50px;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 550px;
-    margin: 40px auto;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    box-shadow: 
-       0 10px 30px rgba(0, 0, 0, 0.2),
-       0 10px 30px rgba(0, 0, 0, 0.25),
-       0 0 20px rgba(172,128,214,0.2);
+.notice-title{
+    font-size: 1rem;
+    margin-top: 40px;
 }
-
-section{
-    transition: all 0.3s ease;
+.small-note{
+    font-size: 13px;
 }
-
-section:hover{
-    transform: translateY(-6px);
-
-    box-shadow: 
-       0 15px 40px rgba(0, 0, 0, 0.4),
-       0 0 30px rgba(172,128,214,0.5),
-       0 0 60px rgba(172,128,214,0.3);
-} */
 
 .menu{
     margin: 30px 0;
@@ -321,11 +331,61 @@ html{
        0 0 60px rgba(172,128,214,0.3);
 }
 
+.sponsor-title{
+    margin-top: 50px;
+    font-size: 13px;
+    text-align: center;
+    letter-spacing: 2px;
+}
+.sponsor-logo img{
+    max-width: 200px;
+    display: block;
+    margin: 0 auto;
+    transition: 0.2s;
+}
+.sponsor-logo img:hover{
+    opacity: 0.8;
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+.sponsor-logo img:active{
+    transform: scale(0.95);
+}
+
+
 .section-link{
     text-decoration: none;
     color: inherit;
     display: block;
 }
+/* 過去写真 */
+.highlight{
+    font-size: 35px;
+}
+.photo-scroll{
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    padding: 10px 0;
+}
+.photo-scroll img{
+    width: 300px;
+    flex-shrink: 0;
+    border-radius: 10px;
+}
+ /* じわっと出す。出る前 */
+.js-reveal{
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 
+      opacity 0.8s ease-in,
+      transform 0.8s cubic-bezier(0.22,1,0.36,1);
+}
+/* 出た後 */
+ .js-reveal.is-show{
+    opacity: 1;
+    transform: translateY(0);
+} 
 
 /* cast.css */
 
@@ -365,7 +425,6 @@ html{
 .glass-box{
     border: 1px solid rgba(170, 150, 255, 0.25);
     backdrop-filter: blur(12px);
-
     margin-top: 50px;
     background: rgba(145, 120, 220, 0.18);
     padding: 20px 30px;
@@ -377,7 +436,7 @@ html{
        0 20px 50px rgba(0, 0, 0, 0.6),
        0 0px 40px rgba(172, 128, 214, 0.35);
        /* 0 0 20px rgba(172,128,214,0.2); */
-    transition: all 0.3s ease;
+
 }
 .top-box{
     max-width: 550px;
@@ -385,6 +444,7 @@ html{
 }
 .glass-box:hover{
     transform: translateY(-6px);
+    transition:box-shadow 0.3s ease;
 
     box-shadow: 
        0 15px 40px rgba(0, 0, 0, 0.4),
@@ -446,3 +506,16 @@ header{
     width: 100%;
     height: 80px;
 }
+/* じわっと出す。出る前 */
+/* .js-reveal{
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 
+      opacity 5s ease-in,
+      transform 2.5s cubic-bezier(0.22,1,0.36,1);
+} */
+/* 出た後 */
+/* .js-reveal.is-show{
+    opacity: 1;
+    transform: translateY(0);
+} */

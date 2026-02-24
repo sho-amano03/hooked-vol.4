@@ -20,3 +20,16 @@ document.addEventListener("click", (e) => {
         menu.classList.remove("active");
     }
 });
+
+const targets = document.querySelectorAll(".js-reveal");
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("is-show");
+      observer.unobserve(entry.target); 　//  一回だけ
+    }
+  });
+},{
+  threshold:0.25　 // ~%見えたら発火
+});
+targets.forEach((target) => observer.observe(target));
